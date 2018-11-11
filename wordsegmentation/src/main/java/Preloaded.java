@@ -1,0 +1,51 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Preloaded {
+    public static final Set<String> VALID_WORDS = new HashSet<>(Arrays.asList(
+        "been", "hands", "bad", "year", "hasnt", "jumps", "your", "sauce", "yeah", "laptop", "twinkling", "music",
+        "would", "bunny", "you", "fairy", "ran", "sure", "going", "milk", "am", "an", "1", "persons", "as", "at",
+        "stop", "4", "drive", "greatly", "folded", "isnt", "be", "weeks", "least", "comes", "tomato", "subsequently",
+        "youre", "how", "arrived", "see", "same", "1234", "1111", "by", "nickname", "wednesday", "after", "tooth",
+        "borrowed", "hand", "a", "mind", "cows", "jobs", "i", "right", "eating", "the", "june", "meet", "blue",
+        "speaks", "exciting", "information", "river", "lease", "combined", "returned", "under", "kite", "crashing",
+        "did", "sometimes", "do", "easter", "got", "good", "red", "japanese", "later", "leave", "bird", "laugh", "wow",
+        "test", "need", "wrote", "its", "often", "check", "brown", "list", "take", "she", "never", "susan", "piece",
+        "authority", "freezer", "party", "little", "frame", "however", "baggage", "rather", "young", "for", "back",
+        "fox", "getting", "random", "perhaps", "wasnt", "passed", "class", "human", "just", "lizard", "over", "roof",
+        "asia", "go", "nancy", "syrup", "room", "home", "better", "with", "environment", "there", "visited", "he",
+        "promotion", "very", "tries", "movie", "popcorn", "told", "sunburnt", "ago", "sick", "years", "else", "camel",
+        "id", "join", "if", "sentence", "song", "sky", "glittering", "africa", "went", "in", "made", "tomorrow", "is",
+        "cream", "it", "vacant", "clocks", "ever", "dog", "wait", "other", "works", "alive", "turned", "goodbye",
+        "thinking", "tom", "asked", "too", "have", "share", "everything", "together", "table", "italy", "handkerchief",
+        "bread", "may", "within", "revels", "noisy", "off", "cheat", "places", "vividly", "shake", "lets", "body",
+        "seats", "pie", "decorated", "pig", "that", "high", "fine", "find", "than", "me", "quite", "different", "likes",
+        "all", "always", "counting", "read", "everyone", "poker", "real", "clock", "my", "christmas", "dentist",
+        "adventure", "were", "true", "try", "lake", "no", "best", "impassable", "hour", "and", "of", "today", "busy",
+        "friday", "oh", "saying", "floor", "harder", "make", "says", "hear", "on", "pretty", "or", "plays",
+        "abstraction", "any", "sundays", "maple", "until", "fence", "coming", "walk", "reason", "thought", "gotten",
+        "coherent", "taste", "about", "cheese", "above", "english", "let", "metaphysics", "they", "waves", "slammed",
+        "old", "night", "want", "them", "each", "something", "appreciated", "unique", "letter", "shooter", "conditions",
+        "discovered", "fact", "neatly", "recommend", "two", "cookies", "long", "colors", "anyway", "toasted",
+        "remember", "are", "does", "where", "free", "so", "sixtyfour", "broken", "think", "striped", "middle", "one",
+        "combining", "store", "many", "people", "stay", "diary", "realise", "fish", "purple", "to", "thing", "open",
+        "story", "but", "ass", "country", "buy", "had", "ice", "research", "either", "white", "school", "things",
+        "donation", "yourself", "up", "has", "ruin", "us", "glass", "last", "town", "caramel", "this", "wont", "please",
+        "bold", "stole", "longer", "once", "know", "playing", "next", "away", "memory", "shop", "records", "asking",
+        "officiates", "book", "donkey", "learning", "house", "we", "life", "yesterday", "nor", "apple", "not", "now",
+        "ends", "throughout", "early", "compensates", "thoughts", "lovely", "green", "recently", "again", "start",
+        "was", "mary", "eaters", "shore", "yet", "consumption", "calories", "stars", "windows", "advised", "way",
+        "malls", "what", "money", "detailed", "short", "initially", "step", "stranger", "time", "pets", "happy",
+        "midsent", "rent", "when", "three", "onesie", "spotted", "loss", "piano", "her", "hes", "sight", "teeth",
+        "plan", "still", "having", "worm", "work", "roads", "come", "anyone", "didnt", "suit", "math", "completely",
+        "favorite", "chocolate", "love", "hump", "lazy", "sentences", "gods", "babies", "our", "gem", "out", "lot",
+        "rock", "couldnt", "mysterious", "get", "writing", "dark", "eat", "older", "place", "loud", "doll", "more",
+        "cool", "great", "buttered", "help", "paints", "cats", "ended", "first", "voice", "small", "door", "shut",
+        "quick", "luck", "sandwiches", "used", "blog", "him", "pastels", "his", "should", "only", "checked", "from",
+        "day", "otherwise", "rain", "proud", "like", "ill", "person", "outside", "sugar", "dont", "here", "joe", "tuna",
+        "mum", "why", "can", "werent", "alone", "paper", "sounds", "car", "flew", "spend", "said", "amount", "will",
+        "saw", "clear", "approaches", "velocity", "enough", "clean", "really", "meal", "someone", "currently",
+        "dessert", "front", "hurry", "attendance", "legless"
+    ));
+}
