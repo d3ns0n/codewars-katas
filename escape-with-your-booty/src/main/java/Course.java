@@ -3,86 +3,93 @@ import java.util.List;
 
 public class Course {
 
-    private static PirateShip pirateShip;
-    private static List<NavyShip> navyShips;
-
     public static boolean checkCourse(char[][] map) {
-        processMap(map);
-        while (true) {
-            if (pirateShipIsCaught()) {
+        World world = processMap(map);
+        List<Ship> navyShips = world.navyShips;
+        Ship pirateShip = world.pirateShip;
+
+        for (int i = 0; i < world.width; i++) {
+            if (pirateShip.isInRangeOf(navyShips)) {
                 return false;
             }
-            if (pirateShipIsHome(map)) {
-                return true;
-            }
-            simulateNextStep(map);
+            world.simulateNextTurn();
         }
+
+        return true;
     }
 
-    private static void processMap(char[][] map) {
-        pirateShip = null;
-        navyShips = new ArrayList<>();
+    private static World processMap(char[][] map) {
+        Ship pirateShip = null;
+        List<Ship> navyShips = new ArrayList<>();
+        int width = map[0].length;
+        int height = map.length;
 
         for (int y = 0; y < map.length; y++) {
             for (int x = 0; x < map[0].length; x++) {
                 if (map[y][x] == 'X') {
-                    pirateShip = new PirateShip(x, y);
+                    pirateShip = new Ship(0, y, 1, 0, width - 1, height - 1);
                 }
                 if (map[y][x] == 'N') {
                     if (y == 0) {
-                        navyShips.add(new NavyShip(x, y, 1));
+                        navyShips.add(new Ship(x, y, 0, 1, width - 1, height - 1));
                     } else {
-                        navyShips.add(new NavyShip(x, y, -1));
+                        navyShips.add(new Ship(x, y, 0, -1, width - 1, height - 1));
                     }
                 }
             }
         }
+
+        return new World(width, height, pirateShip, navyShips);
     }
 
-    private static boolean pirateShipIsHome(char[][] map) {
-        return pirateShip.x == map[0].length - 1;
+    private static class World {
+        int width;
+        int height;
+        Ship pirateShip;
+        List<Ship> navyShips;
+
+        World(int width, int height, Ship pirateShip, List<Ship> navyShips) {
+            this.width = width;
+            this.height = height;
+            this.pirateShip = pirateShip;
+            this.navyShips = navyShips;
+        }
+
+        private void simulateNextTurn() {
+            pirateShip.move();
+            for (Ship navyShip : navyShips) {
+                navyShip.move();
+            }
+        }
     }
 
-    private static boolean pirateShipIsCaught() {
-        for (NavyShip navyShip : navyShips) {
-            if (Math.abs(navyShip.x - pirateShip.x) <= 1 && Math.abs(navyShip.y - pirateShip.y) <= 1) {
-                return true;
+    private static class Ship {
+        int x;
+        int y;
+        int dX;
+        int dY;
+        int maxX;
+        int maxY;
+
+        Ship(int x, int y, int dX, int dY, int maxX, int maxY) {
+            this.x = x;
+            this.y = y;
+            this.dX = dX;
+            this.dY = dY;
+            this.maxX = maxX;
+            this.maxY = maxY;
+        }
+
+        void move() {
+            x += dX;
+            y += dY;
+            if (Math.abs(dY) == 1 && (y == 0 || y == maxY)) {
+                dY *= -1;
             }
         }
 
-        return false;
-    }
-
-    private static void simulateNextStep(char[][] map) {
-        pirateShip.x += 1;
-        navyShips.forEach(navyShip -> {
-            navyShip.y += navyShip.yDirection;
-            if (navyShip.y == 0 || navyShip.y == map.length - 1) {
-                navyShip.yDirection *= -1;
-            }
-        });
-    }
-
-    private static class NavyShip {
-        private int x;
-        private int y;
-        private int yDirection;
-
-        NavyShip(int x, int y, int yDirection) {
-            this.x = x;
-            this.y = y;
-            this.yDirection = yDirection;
-        }
-
-    }
-
-    private static class PirateShip {
-        private int x;
-        private int y;
-
-        PirateShip(int x, int y) {
-            this.x = x;
-            this.y = y;
+        boolean isInRangeOf(List<Ship> otherShips) {
+            return otherShips.stream().anyMatch(otherShip -> Math.abs(x - otherShip.x) <= 1 && Math.abs(y - otherShip.y) <= 1);
         }
     }
 
